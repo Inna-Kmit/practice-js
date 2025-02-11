@@ -201,12 +201,12 @@ console.log(findLongestWord(string)); */
 //   return numbers;
 // }
 
-// // console.log(logNumbers(2, 55));
+// console.log(logNumbers(2, 55));
 
-// // Напишіть функцію fizzBuzz яка приймає число
-// //Якщо число ділитися на 3 повертати fizz
-// //якщо ділитися на 5 повертати buzz
-// //Якщо ділитися на 3 і на 5 повернути fizzbuzz
+// Напишіть функцію fizzBuzz яка приймає число
+//Якщо число ділитися на 3 повертати fizz
+//якщо ділитися на 5 повертати buzz
+//Якщо ділитися на 3 і на 5 повернути fizzbuzz
 
 // function getfizzBuzz(number) {
 //   if (number % 3 == 0 && number % 5 == 0) {
@@ -256,3 +256,118 @@ console.log(findLongestWord(string)); */
 // } else {
 //   console.log("Я вас не знаю");
 // }
+
+// 9. Створіть об'єкт calculator з наступними методами:
+// read(a, b) - приймає два аргумента і зберігає їх
+// як властивості об'єкта
+// sum() повертає сумму збереженних значень (з перевіркою на наявність властивостей в об'єкті)
+// mult() перемножає збереженні значення і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+// raise() возводить першу властивсть в ступінь другої і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+// * винеси перевірку на наявність властивостей в об'єкті в окремий метод exist ()
+
+// const calculator = {
+//   read (a, b) {
+//     this.a = a;
+//     this.b = b;
+//   },
+//   sum () {
+//     if (this.exist()) {
+//       const valuesSum = this.a + this.b;
+//       return valuesSum;
+//     }
+//     return "Not values!";
+//   },
+
+//   mult () {
+//     if (this.exist())
+//     {const multiplyValues = this.a * this.b;
+//   return multiplyValues;
+// }
+//   return "Not values!";
+//   },
+//   raise () {
+//     if (this.exist()) {
+//       const someValues =this.a**this.b;
+//       return someValues;
+//     }
+//     return "Not values!";
+//   },
+//   exist () {
+//     return this.a && this.b;
+//     }
+//   }
+// 3. Напиши класс Notes який управляє коллекцієй нотаток у
+// властивості items.
+// Нотатка це  об'єкт з властивостями text, priority
+// Додай класу статичну властивість Priority,
+// в якій буде зберігатись об'єкт з пріорітетами ("high", "middle", "low").
+// Додай методи getNotes(), addNote(note), removeNote(noteText)
+// updatePriority(noteText, newPriority)
+// class Notes {
+//   static Priority = {
+//     HIGH: "high",
+//     MIDDLE: "middle",
+//     LOW: "low",
+//   };
+//   constructor() {
+//     this.items = [];
+//   }
+//   getNotes() {
+//     return this.items;
+//   }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+//   get getClientData() {
+//     return { clientLogin: this.#login, clientEmail: this.#email };
+//   removeNote(noteText) {
+//     this.items = this.items.filter((item) => item.text !== noteText);
+//   }
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail;
+//   updatePriority(noteText, newPriority) {
+//     const item = this.items.find((item) => item.text === noteText);
+//     if (item) {
+//       item.priority = newPriority;
+//     }
+//   }
+// }
+// const client = new Client("Alex", "alex@gmail.com");
+// console.log(client);
+// console.log(client.getClientData);
+// client.changeEmail = "alexgood@gmail.com";
+// console.log(client.getClientData.clientEmail);
+// const notes = new Notes();
+// notes.addNote({ text: "Note1", priority: Notes.Priority.LOW });
+// notes.addNote({ text: "Note2", priority: Notes.Priority.LOW });
+// notes.addNote({ text: "Note3", priority: Notes.Priority.HIGH });
+// notes.removeNote("Note2");
+// notes.updatePriority("Note3", Notes.Priority.MIDDLE);
+// console.table(notes.getNotes());
+class Car {
+  static maxPrice = 50000;
+  #price;
+
+  constructor(params) {
+    this.#price = params.price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+
+    if (newPrice <= maxPrice) {
+      this.#price = newPrice;
+    }
+  }
+}
+const audi = new Car({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000
